@@ -9,5 +9,6 @@
     @apply font-sans;
     @apply bg-charcoal;
     @apply text-aliceblue;
+    @apply font-medium;
   }
 }

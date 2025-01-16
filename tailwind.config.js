@@ -14,8 +14,8 @@ export default {
         'darkCharcoal': 'hsl(213.7, 30.8% ,14%)',
         'lightCharcoal': 'hsl(213.7, 30.8% ,34%)',
         'aliceblue': '#eff7ff',
-        'magenta': 'hsl(62.9,89.8%,54.1%)',
-        'lightMagenta': 'hsl(62.9,89.8%,74.1%)'
+        'magenta': 'hsl(28.9,89.8%,54.1%)',
+        'lightMagenta': 'hsl(28.9,89.8%,64.1%)'
       },
     },
   },
