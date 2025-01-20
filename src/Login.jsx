@@ -1,7 +1,7 @@
 export default function Login() {
     return (
         <>
-            <div className="bg-darkCharcoal flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
+            <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
                 <a href="" className="flex items-center mb-6 text-2xl font-semibold">
                     <img src="/SmartRecibos.png" alt="Logo" className="w-10 h-10 mr-2"/>
                     Smart Recibos

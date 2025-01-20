@@ -7,8 +7,10 @@
 @layer base {
   body {
     @apply font-sans;
-    @apply bg-charcoal;
+    @apply bg-darkCharcoal;
     @apply text-aliceblue;
     @apply font-medium;
   }
 }
+
+
