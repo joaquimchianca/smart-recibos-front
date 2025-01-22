@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom'
 
 async function loginUser(credentials) {
     console.log('Sending credentials:', credentials);
@@ -25,6 +24,7 @@ async function loginUser(credentials) {
 }
 
 export default function Login({ setToken }) {
+    const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
     
@@ -41,6 +41,8 @@ export default function Login({ setToken }) {
     
         if (token) {
             sessionStorage.setItem('token', token.authToken);
+            setToken(token.authToken)
+            navigate('/recibos')
         } else {
             console.error('Failed to log in. Token is null.');
         }

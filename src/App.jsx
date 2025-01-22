@@ -14,17 +14,15 @@ const App = () => {
     return <Login setToken={setToken} />
   }
   return (
-    <Router>
       <Routes>
+        <Route path="/recibos" element={<ReciboTablePage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<ReciboTablePage />} />
         <Route path="/recibos/add" element={<AddReciboPage />} />
         <Route path="/recibos/update/:id" element={<UpdateReciboPage />} />
         <Route path="/clients" element={<ClienteTablePage />} />
         <Route path="/clients/add" element={<AddClientePage />} />
         <Route path="/clients/update/:id" element={<UpdateClientePage />} />
       </Routes>
-    </Router>
   );
 };
 
