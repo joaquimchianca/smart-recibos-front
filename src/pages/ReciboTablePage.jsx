@@ -13,7 +13,7 @@ const ReciboTablePage = () => {
       <Sidebar />
       <div className='ml-56 mr-8 flex-1 mt-20'>
         <h1 className='text-4xl mb-8'>Recibos</h1>
-        <Table headers={headers} rows={rows}/>
+        <Table headers={headers} rows={rows} title={'recibo'}/>
       </div>
     </div>
   )

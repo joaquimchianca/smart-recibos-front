@@ -1,4 +1,15 @@
-const Table = ({ headers, rows }) => {
+import { useNavigate } from "react-router-dom"
+
+const Table = ({ headers, rows, title }) => {
+  const navigate = useNavigate()
+  const handleRowClick = (rowId) => {
+    if (title == 'recibo') {
+      navigate(`/recibos/update/${rowId}`)
+    } else {
+      navigate(`/clientes/update/${rowId}`)
+    }
+  }
+
   return (
     <div className="relative overflow-x-auto w-full">
       <div className="flex items-baseline space-x-12">
@@ -13,7 +24,8 @@ const Table = ({ headers, rows }) => {
             <input type="text" id="table-search" className="block p-2 ps-10 text-sm border rounded-lg w-80 focus:ring-lightCharcoal focus:border-lightCharcoal placeholder-gray-400 border-lightCharcoal bg-darkCharcoal focus:ring-2 focus:ring-offset-darkCharcoal focus:outline-none" placeholder="Procurar..." />
           </div>
         </div>
-        <button className="transition duration-200 block font-semibold rounded-lg bg-magenta focus:outline-none py-2 px-4 hover:bg-lightMagenta">criar</button>
+        <a className="transition duration-200 block font-semibold rounded-lg bg-magenta focus:outline-none py-2 px-4 hover:bg-lightMagenta"
+          href={`${title == 'recibo' ? "/recibos/add" : "clientes/add"}`}>criar</a>
       </div>
       <table className="w-full text-left text-sm">
         <thead className="text-sm uppercase">
@@ -29,7 +41,8 @@ const Table = ({ headers, rows }) => {
           {rows.map((row, rowIndex) => (
             <tr key={rowIndex} className={`bg-charcoal hover:bg-lightCharcoal hover:cursor-pointer ${rowIndex != rows.length - 1 ? 'border-b border-gray-500' :
               ''
-              }`}>
+              }`}
+              onClick={() => handleRowClick(row[0])}>
               {row.map((cell, cellIndex) => (
                 <td
                   key={cellIndex}

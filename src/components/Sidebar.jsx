@@ -22,7 +22,7 @@ const Sidebar = () => {
                 <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
               </svg>
             </button>
-            <a href="#" className="flex flex-1 justify-center lg:justify-start ms-2 lg:me-24">
+            <a href="/recibos" className="flex flex-1 justify-center lg:justify-start ms-2 lg:me-24">
               <img src="/SmartRecibos.png" alt="Logo" className="h-8 me-3" />
               <span className="self-center text-xl font-semibold lg:text-2xl whitespace-nowrap pr-10">SmartRecibos</span>
             </a>
@@ -36,7 +36,7 @@ const Sidebar = () => {
         <div className="h-full px-3 py-4 overflow-y-auto">
           <ul className="space-y-2">
             <li>
-              <a href="#" className="flex items-center p-2 rounded-lg text-gray-200 hover:text-white group">
+              <a href="/recibos" className="flex items-center p-2 rounded-lg text-gray-200 hover:text-white group">
                 <svg className="flex-shrink-0 w-5 h-5 text-gray-400 transition duration-75 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z" />
                   <path d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z" />
@@ -47,7 +47,7 @@ const Sidebar = () => {
             </li>
             
             <li>
-              <a href="#" className="flex items-center p-2 rounded-lg text-gray-200 hover:text-white group">
+              <a href="/clientes" className="flex items-center p-2 rounded-lg text-gray-200 hover:text-white group">
                 <svg className="flex-shrink-0 w-5 h-5 transition duration-75 text-gray-400 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                   <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
                 </svg>

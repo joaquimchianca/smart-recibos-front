@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
 async function loginUser(credentials) {
-    console.log('Sending credentials:', credentials);
-
     try {
         const response = await fetch('http://localhost:8080/v1/auth', {
             method: 'POST',
@@ -15,7 +13,6 @@ async function loginUser(credentials) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
-        console.log('Response data:', data);
         return data;
     } catch (error) {
         console.error('Error during login:', error);
@@ -30,9 +27,6 @@ export default function Login({ setToken }) {
     
         const user = e.target.user.value;
         const pass = e.target.password.value;
-
-        console.log(user)
-        console.log(pass)
     
         const token = await loginUser({
             username: user,
