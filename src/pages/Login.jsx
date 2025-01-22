@@ -2,34 +2,50 @@ import React, { useState } from "react";
 import PropTypes from 'prop-types';
 
 async function loginUser(credentials) {
-    return fetch('http://localhost:8080/v1/auth', {
-        mode: 'no-cors',
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(credentials)
-    })
-        .then(data => {
-            console.log(data.text());
-            return data.json();
-        })
+    console.log('Sending credentials:', credentials);
+
+    try {
+        const response = await fetch('http://localhost:8080/v1/auth', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(credentials),
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log('Response data:', data);
+        return data;
+    } catch (error) {
+        console.error('Error during login:', error);
+        return null;
+    }
 }
 
 export default function Login({ setToken }) {
-    const [username, setUserName] = useState();
-    const [password, setPassword] = useState();
-
-    const handleSubmit = async e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setUserName(e.target.email.value);
-        setPassword(e.target.password.value);
+    
+        const user = e.target.user.value;
+        const pass = e.target.password.value;
+
+        console.log(user)
+        console.log(pass)
+    
         const token = await loginUser({
-            username,
-            password
+            username: user,
+            password: pass,
         });
-        setToken(token);
-    }
+    
+        if (token) {
+            setToken(token);
+        } else {
+            console.error('Failed to log in. Token is null.');
+        }
+    };
+    
     return (
         <>
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
@@ -42,20 +58,11 @@ export default function Login({ setToken }) {
                         <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl">
                             Entre na sua conta
                         </h1>
-                        <form onSubmit={
-                            handleSubmit
-                            // (e) => {
-                            // e.preventDefault();
-                            // const formData = new FormData(e.target);
-                            // const email = formData.get('email');
-                            // const password = formData.get('password');
-                            // console.log({ email, password }); // Processar os dados aqui
-                            //}
-                        } className="space-y-4 md:space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                             <div>
-                                <label htmlFor="email" className="block mb-2 text-sm font-medium">Seu email</label>
-                                <input name="email" id="email"
-                                    placeholder="exemplo@email.com"
+                                <label htmlFor="user" className="block mb-2 text-sm font-medium">Usuário</label>
+                                <input name="user" id="user"
+                                    placeholder="User"
                                     className="border rounded-lg focus:ring-charcoal focus:ring-4 focus:outline-none focus:border-darkCharcoal block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400" />
                             </div>
                             <div>
