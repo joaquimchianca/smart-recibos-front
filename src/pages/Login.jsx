@@ -40,7 +40,7 @@ export default function Login({ setToken }) {
         });
     
         if (token) {
-            setToken(token);
+            sessionStorage.setItem('token', token.authToken);
         } else {
             console.error('Failed to log in. Token is null.');
         }
@@ -84,6 +84,3 @@ export default function Login({ setToken }) {
         </>
     )
 }
-Login.propTypes = {
-    setToken: PropTypes.func.isRequired
-};
