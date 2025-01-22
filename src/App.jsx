@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import AddClientePage from "./pages/AddClientePage";
@@ -9,6 +9,10 @@ import UpdateClientePage from "./pages/UpdateClientePage";
 import UpdateReciboPage from "./pages/UpdateReciboPage";
 
 const App = () => {
+  const [token, setToken] = useState();
+  if (!token) {
+    return <Login setToken={setToken} />
+  }
   return (
     <Router>
       <Routes>
